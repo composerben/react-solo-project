@@ -11,17 +11,19 @@ const setUser = (user) => ({
   type: SET_SESSION,
   user,
 });
-const removeuser = () => ({
+const removeUser = () => ({
   type: REMOVE_SESSION,
 });
 
 export const signInUser = (user) => async (dispatch) => {
+  const { credential, password } = user;
   const person = await csrfFetch("/api/session", {
     method: "POST",
-    body: JSON.stringify(user),
+    body: JSON.stringify({ credential, password }),
   });
   const loggedInUser = await person.json();
   dispatch(setUser(loggedInUser));
+  return loggedInUser;
 };
 
 const sessionReducer = (state = initialState, action) => {
@@ -30,6 +32,11 @@ const sessionReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.user,
+      };
+    case REMOVE_SESSION:
+      return {
+        ...state,
+        user: null,
       };
     default:
       return state;
