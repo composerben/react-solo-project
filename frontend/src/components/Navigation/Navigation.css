@@ -1,0 +1,16 @@
+.navbar {
+  background-color: rgb(19, 0, 77);
+  display: flex;
+  justify-content: flex-end;
+  height: 80px;
+}
+
+.navbar__navlinks-container {
+  display: flex;
+  align-items: center;
+}
+
+.navlink {
+  color: white;
+  padding: 20px 20px;
+}
