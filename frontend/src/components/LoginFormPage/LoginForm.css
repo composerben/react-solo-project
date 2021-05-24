@@ -1,5 +1,50 @@
 .login-form {
+  box-sizing: border-box;
+  width: 50%;
+  border: 3px solid black;
+  margin-top: 10px;
+}
+
+.login-form__element {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  padding: 0.5rem 0;
+}
+
+.login-form__element label {
+  display: block;
+  font-family: Crimson Text;
+  margin-left: 5px;
+}
+
+.login-form__element input {
+  width: 100%;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+  .login-form__element label {
+    display: none;
+  }
+
+  .login-form__element {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 600px) {
+  .login-form__element {
+    flex-direction: row;
+  }
+
+  .login-form__element label {
+    flex-basis: 8rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  .login-button {
+    margin-left: 8rem;
+  }
 }

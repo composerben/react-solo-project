@@ -33,27 +33,31 @@ const LoginFormPage = () => {
           <li key={index}>{error}</li>
         ))}
       </ul>
-      <label className="login-form__username-label">
-        Username or Email
+      <div className="login-form__element">
+        <label for="username">Username or Email</label>
         <input
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
+          placeholder="Username / Email"
           required
         ></input>
-      </label>
-      <label className="login-form__password-label">
-        Password
+      </div>
+      <div className="login-form__element">
+        <label for="password">Password</label>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
           required
         ></input>
-      </label>
-      <button className="login-form__button" type="submit">
-        Log In
-      </button>
+      </div>
+      <div className="login-form__element">
+        <button className="login-button" type="submit">
+          Log In
+        </button>
+      </div>
     </form>
   );
 };
