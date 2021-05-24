@@ -12,7 +12,8 @@ const LoginFormPage = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to={`/users/${sessionUser.id}`} />;
+  console.log(sessionUser);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +35,7 @@ const LoginFormPage = () => {
         ))}
       </ul>
       <div className="login-form__element">
-        <label for="username">Username or Email</label>
+        <label htmlFor="username">Username or Email</label>
         <input
           type="text"
           value={credential}
@@ -44,7 +45,7 @@ const LoginFormPage = () => {
         ></input>
       </div>
       <div className="login-form__element">
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           value={password}

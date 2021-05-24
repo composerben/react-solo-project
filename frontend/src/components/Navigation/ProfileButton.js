@@ -27,7 +27,7 @@ const ProfileButton = () => {
   return (
     <div className="profile-button">
       <button onClick={openMenu}>
-        <i class="far fa-user"></i>
+        <i className="far fa-user"></i>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">

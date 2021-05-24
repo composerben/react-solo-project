@@ -21,6 +21,9 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
     .withMessage("Password must be 6 characters or more."),
+  check("biography")
+    .exists({ checkFalsy: true })
+    .withMessage("Please type a bio for yourself!"),
   handleValidationErrors,
 ];
 
@@ -28,14 +31,23 @@ router.post(
   "/",
   validateSignup,
   asyncHandler(async (req, res) => {
-    const { email, password, username } = req.body;
-    const user = await User.signup({ email, username, password });
+    const { email, password, username, biography } = req.body;
+    const user = await User.signup({ email, username, password, biography });
 
     await setTokenCookie(res, user);
 
     return res.json({
       user,
     });
+  })
+);
+
+router.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    const { id } = req.body;
+    const user = await User.findByPk(id);
+    return res.json({ user });
   })
 );
 

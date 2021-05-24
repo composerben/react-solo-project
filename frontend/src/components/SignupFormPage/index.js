@@ -12,8 +12,9 @@ const SignupFormPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [biograhy, setBiography] = useState("");
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to={`/users/${sessionUser.id}`} />;
 
   const handleSubmit = (e) => {
     e.preventDafault();
@@ -36,45 +37,61 @@ const SignupFormPage = () => {
           <li key={index}>{error}</li>
         ))}
       </ul>
-      <label className="signup-form__username-label">
-        Username
+      <div className="signup-form__element">
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username"
           required
         />
-      </label>
-      <label className="signup-form__email-label">
-        Email
+      </div>
+      <div className="signup-form__element">
+        <label htmlFor="email">Email</label>
         <input
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
           required
         />
-      </label>
-      <label className="signup-form__password-label">
-        Password
+      </div>
+      <div className="signup-form__element">
+        <label htmlFor="biograhy">Biography</label>
+        <textarea
+          name="biography"
+          placeholder="Tell us about yourself!"
+          value={biograhy}
+          onChange={(e) => setBiography(e.target.value)}
+          required
+        ></textarea>
+      </div>
+      <div className="signup-form__element">
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
           required
         />
-      </label>
-      <label className="signup-form__confirm-password-label">
-        Confirm Password
+      </div>
+      <div className="signup-form__element">
+        <label htmlFor="confirm-password">Confirm Password</label>
         <input
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
+          placeholder="Confirm Password"
           required
         />
-      </label>
-      <button className="signup-form__button" type="submit">
-        Sign Up
-      </button>
+      </div>
+      <div className="signup-form__element">
+        <button className="signup-button" type="submit">
+          Sign Up
+        </button>
+      </div>
     </form>
   );
 };

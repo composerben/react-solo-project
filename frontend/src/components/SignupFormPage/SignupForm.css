@@ -1,5 +1,58 @@
 .signup-form {
+  box-sizing: border-box;
+  width: 50%;
+  border: 3px solid black;
+  margin: 5% auto;
+}
+
+.signup-form__element {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  padding: 0.5rem 0;
+  font-size: 14pt;
+}
+
+.signup-form__element label {
+  display: inline-block;
+  font-family: Crimson Text;
+  margin-left: 5px;
+}
+
+.signup-form__element input,
+textarea {
+  width: 100%;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.signup-button {
+  width: 90px;
+  font-size: 14pt;
+  font-family: Crimson Text;
+}
+
+@media (max-width: 700px) {
+  .signup-form__element label {
+    display: none;
+  }
+
+  .signup-form__element {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 700px) {
+  .signup-form__element {
+    flex-direction: row;
+  }
+
+  .signup-form__element label {
+    flex-basis: 8rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  .signup-button {
+    margin-left: 8rem;
+  }
 }
