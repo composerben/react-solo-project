@@ -34,8 +34,9 @@ export const login = (user) => async (dispatch) => {
     body: JSON.stringify({ credential, password }),
   });
   const loggedInUser = await person.json();
+  console.log(loggedInUser);
   dispatch(setUser(loggedInUser));
-  return loggedInUser;
+  return person;
 };
 
 export const restoreUser = () => async (dispatch) => {
