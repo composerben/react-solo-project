@@ -12,7 +12,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     dispatch(userActions.retrieveUserInfo(userId));
-  }, [dispatch]);
+  }, [dispatch, userId]);
   return (
     <>
       <h1>Hello from Profile Page</h1>

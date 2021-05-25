@@ -12,16 +12,16 @@ const SignupFormPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  const [biograhy, setBiography] = useState("");
+  const [biography, setBiography] = useState("");
 
   if (sessionUser) return <Redirect to={`/users/${sessionUser.id}`} />;
 
   const handleSubmit = (e) => {
-    e.preventDafault();
+    e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(
-        sessionActions.signup({ email, username, password })
+        sessionActions.signup({ email, username, password, biography })
       ).catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
@@ -58,11 +58,11 @@ const SignupFormPage = () => {
         />
       </div>
       <div className="signup-form__element">
-        <label htmlFor="biograhy">Biography</label>
+        <label htmlFor="biography">Biography</label>
         <textarea
           name="biography"
           placeholder="Tell us about yourself!"
-          value={biograhy}
+          value={biography}
           onChange={(e) => setBiography(e.target.value)}
           required
         ></textarea>
