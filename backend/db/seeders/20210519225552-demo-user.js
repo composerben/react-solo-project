@@ -14,6 +14,12 @@ module.exports = {
           hashedPassword: bcrypt.hashSync("password"),
           biography: "Demo Biography",
         },
+        {
+          email: "zygbigadoraloo@gmail.com",
+          username: "Composerben",
+          hashedPassword: bcrypt.hashSync("password"),
+          biography: "Media/Concert composer from Seattle, WA",
+        },
       ],
       {}
     );
