@@ -7,10 +7,10 @@ const getUser = (user) => ({
   user,
 });
 //define & export thunk
-export const retrieveUserInfo = (user) => async (dispatch) => {
-  const { id, username, biography } = user;
-  const response = await csrfFetch("/api/users");
+export const retrieveUserInfo = (id) => async (dispatch) => {
+  const response = await csrfFetch(`/api/users/${id}`);
   const data = await response.json();
+  console.log(data);
   dispatch(getUser(data.user));
   return response;
 };
@@ -20,10 +20,7 @@ const initialState = {};
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_USER:
-      return {
-        ...state,
-        user: action.user,
-      };
+      return action.user;
     default:
       return state;
   }

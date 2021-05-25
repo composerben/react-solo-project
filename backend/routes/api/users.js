@@ -43,9 +43,9 @@ router.post(
 );
 
 router.get(
-  "/",
+  "/:id",
   asyncHandler(async (req, res) => {
-    const { id } = req.body;
+    const id = req.params.id;
     const user = await User.findByPk(id);
     return res.json({ user });
   })
