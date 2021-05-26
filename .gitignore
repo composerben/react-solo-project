@@ -2,7 +2,7 @@ node_modules/
 .env
 build
 .DS_Store
-public/audio/
-public/images/
+audio/
+images/
 
 
