@@ -11,8 +11,10 @@ const Navigation = ({ isLoggedIn }) => {
   if (sessionUser) {
     sessionLinks = (
       <>
+        <NavLink className="navlink" to={`/users/${sessionUser.id}`}>
+          Profile
+        </NavLink>
         <ProfileButton user={sessionUser} />
-        <NavLink to={`/users/${sessionUser.id}`}>Profile</NavLink>
       </>
     );
   } else {

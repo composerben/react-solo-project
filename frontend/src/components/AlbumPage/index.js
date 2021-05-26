@@ -25,8 +25,14 @@ const AlbumPage = () => {
           {songs &&
             songs.map((song) => (
               <div className="song-player">
-                <p className="song-name">{song.name}</p>
-                <audio controls src={song.audioFile}></audio>
+                <p className="song-name">
+                  {song.trackNumber}. {song.name}
+                </p>
+                <audio
+                  controls
+                  controlsList="nodownload"
+                  src={song.audioFile}
+                ></audio>
               </div>
             ))}
         </div>
