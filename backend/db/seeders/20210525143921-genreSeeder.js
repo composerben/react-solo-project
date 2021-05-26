@@ -90,6 +90,9 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
+      queryInterface.sequelize.query(
+        'ALTER SEQUENCE "Genres_id_seq" RESTART WITH 1;'
+      );
     return queryInterface.bulkDelete("Genres", null, {});
   },
 };

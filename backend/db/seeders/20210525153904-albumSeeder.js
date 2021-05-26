@@ -15,14 +15,14 @@ module.exports = {
     return queryInterface.bulkInsert("Albums", [
       {
         name: "Short Demos",
-        albumCover: "backend/assets/images/Ben_B&W Smallest.jpg",
+        albumCover: "/images/Ben_B&W_Smallest.jpg",
         releaseDate: 2021,
         genreId: 21,
         userId: 2,
       },
       {
         name: "Orchestral Selections",
-        albumCover: "backend/assets/images/DSC_8169_01.jpg",
+        albumCover: "/images/DSC_8169_01.jpg",
         releaseDate: 2020,
         genreId: 4,
         userId: 2,
@@ -38,6 +38,9 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
+    queryInterface.sequelize.query(
+      'ALTER SEQUENCE "Albums_id_seq" RESTART WITH 1;'
+    );
     return queryInterface.bulkDelete("Albums", null, {});
   },
 };
