@@ -10,8 +10,7 @@ const getUser = (user) => ({
 export const retrieveUserInfo = (id) => async (dispatch) => {
   const response = await csrfFetch(`/api/users/${id}`);
   const data = await response.json();
-  console.log(data);
-  dispatch(getUser(data.user));
+  dispatch(getUser(data.user[0]));
   return response;
 };
 
