@@ -18,7 +18,7 @@ const ProfilePage = () => {
     <>
       <h1>{currentUser.username}'s Albums:</h1>
       <p>{currentUser.biography}</p>
-      {/* <p>{currentUser.Albums[0].name}</p> */}
+      <p>{currentUser.Albums[0].name}</p>
       <img src={currentUser.Albums[0].albumCover}></img>
     </>
   );
