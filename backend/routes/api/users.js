@@ -47,15 +47,12 @@ router.get(
   "/:id",
   asyncHandler(async (req, res) => {
     const id = req.params.id;
-    console.log("************************", Album);
     const user = await User.findAll({
       where: {
         id: id,
       },
       include: [{ model: Album }],
     });
-    console.log("***************************", JSON.stringify(user));
-    console.log("***************************", user);
     return res.json({ user });
   })
 );
