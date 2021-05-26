@@ -5,8 +5,6 @@ import * as userActions from "../../store/users";
 import "./ProfilePage.css";
 
 const ProfilePage = () => {
-  // const [username, setUsername] = useState("");
-  // const [biography, setBiography] = useState;
   const dispatch = useDispatch();
   const { userId } = useParams();
   const currentUser = useSelector((state) => state.user);

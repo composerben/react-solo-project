@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
 
-const { Album } = require("../../db/models/album");
+const { Album, Song } = require("../../db/models/");
 
 router.get(
   "/:id",
@@ -16,7 +16,7 @@ router.get(
         model: Song,
       },
     });
-    return req.json({ album });
+    return res.json({ album });
   })
 );
 module.exports = router;
