@@ -1,0 +1,10 @@
+.album__songs-container {
+  border: 3px solid;
+  display: flex;
+  flex-shrink: 1;
+}
+
+.album__songs-container img {
+  height: 300px;
+  width: 300px;
+}

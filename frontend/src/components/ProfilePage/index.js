@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as userActions from "../../store/users";
 import "./ProfilePage.css";
@@ -12,7 +12,6 @@ const ProfilePage = () => {
   if (currentUser) {
     albums = currentUser.Albums;
   }
-  console.log("Current User: ", currentUser);
 
   useEffect(() => {
     dispatch(userActions.retrieveUserInfo(userId));
@@ -26,7 +25,9 @@ const ProfilePage = () => {
           albums.map((album) => (
             <div className="user__album-info" key={album.name}>
               <p>{album.name}</p>
-              <img className="album-image" src={album.albumCover}></img>
+              <Link to={`/albums/${album.id}`}>
+                <img className="album-image" src={album.albumCover}></img>
+              </Link>
             </div>
           ))}
       </div>

@@ -8,7 +8,10 @@ const AlbumPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const currentAlbum = useSelector((state) => state.album);
-
+  let songs;
+  if (currentAlbum) {
+    songs = currentAlbum.Songs;
+  }
   useEffect(() => {
     dispatch(albumActions.retrieveAlbumInfo(id));
   }, [dispatch, id]);
@@ -16,6 +19,18 @@ const AlbumPage = () => {
   return (
     <>
       <h1>{currentAlbum.name}</h1>
+      <div className="album__songs-container">
+        <img src={currentAlbum.albumCover}></img>
+        <div className="songs__container">
+          {songs &&
+            songs.map((song) => (
+              <div className="song-player">
+                <p className="song-name">{song.name}</p>
+                <audio controls src={song.audioFile}></audio>
+              </div>
+            ))}
+        </div>
+      </div>
     </>
   );
 };

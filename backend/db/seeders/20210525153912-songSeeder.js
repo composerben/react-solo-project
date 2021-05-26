@@ -15,14 +15,16 @@ module.exports = {
     return queryInterface.bulkInsert("Songs", [
       {
         name: "Sci-fi Demo",
-        audioFile: "backend/assets/audio/Sci-Fi_Demo_Master.wav",
+        audioFile:
+          "https://aa-react-solo-project.s3-us-west-2.amazonaws.com/Sci-Fi_Demo_Master.wav",
         userId: 2,
         trackNumber: 1,
         albumId: 1,
       },
       {
         name: "Cyber Sharks Gameplay",
-        audioFile: "backend/assets/audio/Cyber Sharks Gameplay.wav",
+        audioFile:
+          "https://aa-react-solo-project.s3-us-west-2.amazonaws.com/Cyber+Sharks+Gameplay.wav",
         userId: 2,
         trackNumber: 2,
         albumId: 1,
@@ -30,35 +32,39 @@ module.exports = {
       {
         name: "Short, Sweet, and Also an Elephant",
         audioFile:
-          "backend/assets/audio/Short, Sweet, and Also an Elephant_Master.wav",
+          "https://aa-react-solo-project.s3-us-west-2.amazonaws.com/Short%2C+Sweet%2C+and+Also+an+Elephant_Master.wav",
         userId: 2,
         trackNumber: 3,
         albumId: 1,
       },
       {
         name: "Underwater Fantasy",
-        audioFile: "backend/assets/audio/Underwater Fantasy Demo .wav",
+        audioFile:
+          "https://aa-react-solo-project.s3-us-west-2.amazonaws.com/Underwater+Fantasy+Demo+.wav",
         userId: 2,
         trackNumber: 4,
         albumId: 1,
       },
       {
         name: "Son of Adventure: the Movie",
-        audioFile: "backend/assets/audio/Son of Adventure; the Movie.wav",
+        audioFile:
+          "https://aa-react-solo-project.s3-us-west-2.amazonaws.com/Son+of+Adventure%3B+the+Movie.wav",
         userId: 2,
         trackNumber: 1,
         albumId: 2,
       },
       {
         name: "Fight or Flight",
-        audioFile: "backend/assets/audio/Fight or Flight.mp3",
+        audioFile:
+          "https://aa-react-solo-project.s3-us-west-2.amazonaws.com/Fight+or+Flight.mp3",
         userId: 2,
         trackNumber: 2,
         albumId: 2,
       },
       {
         name: "Yeahbah Ad",
-        audioFile: "backend/assets/audio/Yeahbah_MX_Orchestral_v1.wav",
+        audioFile:
+          "https://aa-react-solo-project.s3-us-west-2.amazonaws.com/Yeahbah_MX_Orchestral_v1.wav",
         userId: 2,
         trackNumber: 3,
         albumId: 2,
