@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as albumActions from "../../store/albums";
+import * as genreActions from "../../store/genre";
 import "./AddAlbumForm.css";
 
 const AddAlbumForm = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
+  const genres = useSelector((state) => state.genres);
   const [name, setName] = useState("");
   const [albumCover, setAlbumCover] = useState("");
   const [releaseDate, setReleaseDate] = useState("");
-  const [genre, setGenre] = useState("");
+  const [genre, setGenre] = useState(0);
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
@@ -24,6 +26,10 @@ const AddAlbumForm = () => {
       })
     );
   };
+
+  useEffect(() => {
+    dispatch(genreActions.retrieveGenreInfo());
+  }, [dispatch]);
 
   return (
     <form className="album-form" onSubmit={handleSubmit}>
@@ -62,7 +68,21 @@ const AddAlbumForm = () => {
           required
         />
       </div>
-      {/* TODO: make a select with option dropdowns of each genre name that would then post their id */}
+      <div className="album-form__element">
+        <label htmlFor="genre">Genre</label>
+        <select
+          name="genre"
+          value={genre}
+          onChange={(e) => parseInt(setGenre(e.target.value))}
+        >
+          <option value="0" disabled>
+            --Select a Genre--
+          </option>
+          {genres.map((genre) => (
+            <option value={genre.id}>{genre.name}</option>
+          ))}
+        </select>
+      </div>
     </form>
   );
 };

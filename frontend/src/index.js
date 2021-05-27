@@ -10,6 +10,7 @@ import configureStore from "./store";
 import * as sessionActions from "./store/session";
 import * as userActions from "./store/users";
 import * as albumActions from "./store/albums";
+import * as genreActions from "./store/genre";
 
 const store = configureStore();
 
@@ -21,6 +22,7 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
   window.userActions = userActions;
   window.albumActions = albumActions;
+  window.genreActions = genreActions;
 }
 
 function Root() {

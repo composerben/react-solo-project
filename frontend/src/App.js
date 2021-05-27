@@ -25,8 +25,8 @@ function App() {
           <Route path="/login" component={LoginFormPage} />
           <Route path="/signup" component={SignupFormPage} />
           <Route path="/users/:userId" component={ProfilePage} />
-          <Route path="/albums/:id" component={AlbumPage} />
           <Route path="/albums/add-new" component={AddAlbumForm} />
+          <Route path="/albums/:id" component={AlbumPage} />
         </Switch>
       )}
       <Footer />
