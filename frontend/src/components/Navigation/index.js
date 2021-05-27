@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
@@ -32,6 +32,9 @@ const Navigation = ({ isLoggedIn }) => {
 
   return (
     <nav className="navbar">
+      <Link className="navbar" exact to="/">
+        <img src="https://aa-react-solo-project.s3-us-west-2.amazonaws.com/Screen+Shot+2021-05-26+at+4.24.20+PM.png"></img>
+      </Link>
       <div className="navbar__navlinks-container">
         <NavLink className="navlink" exact to="/">
           Home

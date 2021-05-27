@@ -20,7 +20,9 @@ const AlbumPage = () => {
     <>
       <h1>{currentAlbum.name}</h1>
       <div className="album__songs-container">
-        <img src={currentAlbum.albumCover}></img>
+        <div className="album__image-container">
+          <img src={currentAlbum.albumCover}></img>
+        </div>
         <div className="songs__container">
           {songs &&
             songs.map((song) => (

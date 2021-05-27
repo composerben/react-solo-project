@@ -1,8 +1,8 @@
 .navbar {
   background-color: rgb(33, 157, 194);
-  display: flex;
-  justify-content: flex-end;
   height: 80px;
+  display: flex;
+  /* justify-content: flex-end; */
 }
 
 .navbar__navlinks-container {
@@ -16,4 +16,9 @@
   font-family: "Crimson Text", serif;
   font-weight: 500;
   font-size: 16pt;
+}
+
+.navbar img {
+  width: 300px;
+  align-self: center;
 }
