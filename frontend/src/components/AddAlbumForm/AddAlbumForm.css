@@ -1,0 +1,25 @@
+.album-form {
+  box-sizing: border-box;
+  width: 50%;
+  border: 3px solid black;
+  margin: 5% auto;
+}
+
+.album-form__element {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  font-size: 14pt;
+}
+
+.album-form__element label {
+  display: inline-block;
+  font-family: Crimson Text;
+  margin-left: 5px;
+}
+
+.album-form__element input {
+  width: 100%;
+  margin-right: 5px;
+  margin-left: 5px;
+}

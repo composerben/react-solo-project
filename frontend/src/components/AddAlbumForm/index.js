@@ -8,6 +8,7 @@ const AddAlbumForm = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const genres = useSelector((state) => state.genres);
+  console.log(genres);
   const [name, setName] = useState("");
   const [albumCover, setAlbumCover] = useState("");
   const [releaseDate, setReleaseDate] = useState("");
@@ -78,9 +79,9 @@ const AddAlbumForm = () => {
           <option value="0" disabled>
             --Select a Genre--
           </option>
-          {genres.map((genre) => (
+          {/* {genres.map((genre) => (
             <option value={genre.id}>{genre.name}</option>
-          ))}
+          ))} */}
         </select>
       </div>
     </form>
