@@ -5,6 +5,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import ProfilePage from "./components/ProfilePage";
 import AlbumPage from "./components/AlbumPage";
+import AddAlbumForm from "./components/AddAlbumForm";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
@@ -21,18 +22,11 @@ function App() {
       <Navigation isLoggedIn={isLoggedIn} />
       {isLoggedIn && (
         <Switch>
-          <Route path="/login">
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
-          <Route path="/users/:userId">
-            <ProfilePage />
-          </Route>
-          <Route path="/albums/:id">
-            <AlbumPage />
-          </Route>
+          <Route path="/login" component={LoginFormPage} />
+          <Route path="/signup" component={SignupFormPage} />
+          <Route path="/users/:userId" component={ProfilePage} />
+          <Route path="/albums/:id" component={AlbumPage} />
+          <Route path="/albums/add-new" component={AddAlbumForm} />
         </Switch>
       )}
       <Footer />
