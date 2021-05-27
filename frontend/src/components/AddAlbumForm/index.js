@@ -79,9 +79,9 @@ const AddAlbumForm = () => {
           <option value="0" disabled>
             --Select a Genre--
           </option>
-          {/* {genres.map((genre) => (
+          {genres.map((genre) => (
             <option value={genre.id}>{genre.name}</option>
-          ))} */}
+          ))}
         </select>
       </div>
     </form>
