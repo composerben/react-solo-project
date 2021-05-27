@@ -14,7 +14,15 @@ const AddAlbumForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(albumActions.addAlbum({ name, albumCover, releaseDate, genre }));
+    dispatch(
+      albumActions.addAlbum({
+        name,
+        albumCover,
+        releaseDate,
+        genre,
+        userId: sessionUser.id,
+      })
+    );
   };
 
   return (
