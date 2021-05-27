@@ -6,6 +6,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import ProfilePage from "./components/ProfilePage";
 import AlbumPage from "./components/AlbumPage";
 import AddAlbumForm from "./components/AddAlbumForm";
+import HomePage from "./components/HomePage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
@@ -22,6 +23,7 @@ function App() {
       <Navigation isLoggedIn={isLoggedIn} />
       {isLoggedIn && (
         <Switch>
+          <Route exact path="/" component={HomePage} />
           <Route path="/login" component={LoginFormPage} />
           <Route path="/signup" component={SignupFormPage} />
           <Route path="/users/:userId" component={ProfilePage} />

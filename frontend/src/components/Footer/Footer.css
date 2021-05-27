@@ -4,4 +4,17 @@
   left: 0;
   bottom: 0;
   background-color: rgb(100, 180, 205);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.developer {
+  color: white;
+  font-size: 20px;
+}
+
+.github-logo {
+  width: 50px;
+  padding: 10px 10px;
 }

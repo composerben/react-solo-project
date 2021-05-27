@@ -39,6 +39,15 @@ router.get(
   })
 );
 
+router.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    const albums = await Album.findAll();
+    console.log("JSON STRINGIFY", JSON.stringify(albums));
+    return res.json({ albums });
+  })
+);
+
 router.post(
   "/add-new",
   validateAlbum,
@@ -52,8 +61,6 @@ router.post(
       genreId,
       userId,
     });
-
-    
 
     return res.json({ album });
   })
