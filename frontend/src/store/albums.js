@@ -27,7 +27,6 @@ export const retrieveAlbumInfo = (id) => async (dispatch) => {
 export const retrieveAllAlbums = () => async (dispatch) => {
   const response = await csrfFetch("/api/albums");
   const data = await response.json();
-  console.log("THUNK", data);
   dispatch(getAllAlbums(data.albums));
   return response;
 };

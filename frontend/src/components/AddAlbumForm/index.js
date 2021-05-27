@@ -10,7 +10,6 @@ const AddAlbumForm = () => {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const genres = useSelector((state) => state.genres);
-  console.log(genres[0]);
 
   const [name, setName] = useState("");
   const [albumCover, setAlbumCover] = useState("");

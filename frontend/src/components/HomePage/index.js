@@ -7,7 +7,6 @@ import "./HomePage.css";
 const HomePage = () => {
   const dispatch = useDispatch();
   const albums = useSelector((state) => state.album.albums);
-  console.log("HOMEPAGE", albums);
 
   useEffect(() => {
     dispatch(albumActions.retrieveAllAlbums());
