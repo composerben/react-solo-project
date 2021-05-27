@@ -29,7 +29,11 @@ const ProfilePage = () => {
                 <h2>{album.name}</h2>
               </Link>
               <Link to={`/albums/${album.id}`}>
-                <img className="album-image" src={album.albumCover}></img>
+                <img
+                  className="album-image"
+                  src={album.albumCover}
+                  alt="album-cover"
+                ></img>
               </Link>
             </div>
           ))}

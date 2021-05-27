@@ -25,6 +25,12 @@ select {
   margin-left: 5px;
 }
 
+.album-button {
+  width: 90px;
+  font-size: 14pt;
+  font-family: Crimson Text;
+}
+
 @media (max-width: 700px) {
   .album-form__element label {
     display: none;
@@ -44,5 +50,9 @@ select {
     flex-basis: 8rem;
     flex-grow: 0;
     flex-shrink: 0;
+  }
+
+  .album-button {
+    margin-left: 8rem;
   }
 }

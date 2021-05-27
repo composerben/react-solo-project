@@ -21,7 +21,7 @@ const AlbumPage = () => {
       <h1>{currentAlbum.name}</h1>
       <div className="album__songs-container">
         <div className="album__image-container">
-          <img src={currentAlbum.albumCover}></img>
+          <img src={currentAlbum.albumCover} alt="album-cover"></img>
         </div>
         <div className="songs__container">
           {songs &&

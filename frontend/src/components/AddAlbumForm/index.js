@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as albumActions from "../../store/albums";
 import * as genreActions from "../../store/genre";
@@ -6,9 +7,11 @@ import "./AddAlbumForm.css";
 
 const AddAlbumForm = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const genres = useSelector((state) => state.genres);
-  console.log(genres);
+  console.log(genres[0]);
+
   const [name, setName] = useState("");
   const [albumCover, setAlbumCover] = useState("");
   const [releaseDate, setReleaseDate] = useState("");
@@ -22,10 +25,32 @@ const AddAlbumForm = () => {
         name,
         albumCover,
         releaseDate,
-        genre,
+        genreId: genre,
         userId: sessionUser.id,
       })
     );
+    history.push(`/users/${sessionUser.id}`);
+  };
+
+  const addSongField = (e) => {
+    e.preventDefault();
+    const songContainer = document.createElement("div");
+    songContainer.setAttribute("class", "album-form__element");
+
+    const songLabel = document.createElement("label");
+    songLabel.innerHTML = "Song info:";
+    songContainer.appendChild(songLabel);
+
+    const songName = document.createElement("input");
+    songName.setAttribute("placeholder", "Song Name");
+    const trackNumber = document.createElement("input");
+    trackNumber.setAttribute("placeholder", "Track Number");
+
+    songContainer.appendChild(songName);
+    songContainer.appendChild(trackNumber);
+
+    const form = document.querySelector(".album-form");
+    form.appendChild(songContainer);
   };
 
   useEffect(() => {
@@ -79,10 +104,21 @@ const AddAlbumForm = () => {
           <option value="0" disabled>
             --Select a Genre--
           </option>
-          {genres.map((genre) => (
-            <option value={genre.id}>{genre.name}</option>
-          ))}
+          {genres.length &&
+            genres.map((genre) => (
+              <option value={genre.id} key={genre.id}>
+                {genre.name}
+              </option>
+            ))}
         </select>
+        <button className="add-song-button" onClick={addSongField}>
+          ONE. MORE. SONG!
+        </button>
+        <div className="album-form__element">
+          <button className="album-button" type="submit">
+            Upload Album
+          </button>
+        </div>
       </div>
     </form>
   );

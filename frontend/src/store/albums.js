@@ -21,7 +21,7 @@ export const retrieveAlbumInfo = (id) => async (dispatch) => {
 
 export const addAlbum = (album) => async (dispatch) => {
   const { name, albumCover, releaseDate, genreId, userId } = album;
-  const response = await csrfFetch("/api/albums", {
+  const response = await csrfFetch("/api/albums/add-new", {
     method: "POST",
     body: JSON.stringify({ name, albumCover, releaseDate, genreId, userId }),
   });
