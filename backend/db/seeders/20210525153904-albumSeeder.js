@@ -15,14 +15,16 @@ module.exports = {
     return queryInterface.bulkInsert("Albums", [
       {
         name: "Short Demos",
-        albumCover: "/images/Ben_B&W_Smallest.jpg",
+        albumCover:
+          "https://aa-react-solo-project.s3-us-west-2.amazonaws.com/Ben_B%26W_Smallest.jpg",
         releaseDate: 2021,
         genreId: 21,
         userId: 2,
       },
       {
         name: "Orchestral Selections",
-        albumCover: "/images/DSC_8169_01.jpg",
+        albumCover:
+          "https://aa-react-solo-project.s3-us-west-2.amazonaws.com/DSC_8169_01.jpg",
         releaseDate: 2020,
         genreId: 4,
         userId: 2,

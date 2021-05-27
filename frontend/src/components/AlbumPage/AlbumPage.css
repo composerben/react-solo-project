@@ -9,14 +9,10 @@
   width: 100%;
   position: relative;
 }
-.album__image-container {
-  width: 50%;
-}
 
 .songs__container {
   display: flex;
   flex-direction: column;
   flex-shrink: 1;
   margin-left: 10px;
-  width: 50%;
 }
