@@ -9,15 +9,14 @@
   width: 100%;
   position: relative;
 }
-
-.songs__container {
-  margin-left: 10px;
-  /* width: 40%; */
+.album__image-container {
+  width: 50%;
 }
 
-/* @media (max-width: 450px) {
-  .album__image-container img {
-    width: 450px;
-    height: 450px;
-  }
-} */
+.songs__container {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  margin-left: 10px;
+  width: 50%;
+}
