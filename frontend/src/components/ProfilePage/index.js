@@ -18,13 +18,16 @@ const ProfilePage = () => {
   }, [dispatch, userId]);
   return (
     <>
-      <h1>{currentUser.username}'s Albums:</h1>
+      <h1>{currentUser.username}</h1>
+      <h3>About the Artist</h3>
       <p>{currentUser.biography}</p>
       <div className="user__albums-container">
         {albums &&
           albums.map((album) => (
             <div className="user__album-info" key={album.name}>
-              <p>{album.name}</p>
+              <Link to={`/albums/${album.id}`}>
+                <h2>{album.name}</h2>
+              </Link>
               <Link to={`/albums/${album.id}`}>
                 <img className="album-image" src={album.albumCover}></img>
               </Link>

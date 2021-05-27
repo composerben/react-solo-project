@@ -24,7 +24,7 @@ module.exports = {
       {
         name: "Orchestral Selections",
         albumCover:
-          "https://aa-react-solo-project.s3-us-west-2.amazonaws.com/DSC_8169_01.jpg",
+          "https://aa-react-solo-project.s3-us-west-2.amazonaws.com/DSC_8169_01.jpg ",
         releaseDate: 2020,
         genreId: 4,
         userId: 2,

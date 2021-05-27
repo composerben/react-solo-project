@@ -1,3 +1,7 @@
+* {
+  font-family: Crimson Text;
+}
+
 .album-image {
   width: 300px;
   height: 300px;
@@ -14,4 +18,8 @@
 
 .user__album-info {
   padding: 10px 12px;
+}
+
+h3 {
+  text-decoration: underline;
 }

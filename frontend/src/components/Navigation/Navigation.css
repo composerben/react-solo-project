@@ -1,13 +1,13 @@
 .navbar {
-  background-color: rgb(33, 157, 194);
+  background-color: rgb(100, 180, 205);
   height: 80px;
   display: flex;
-  /* justify-content: flex-end; */
 }
 
 .navbar__navlinks-container {
   display: flex;
   align-items: center;
+  flex-shrink: 1;
 }
 
 .navlink {

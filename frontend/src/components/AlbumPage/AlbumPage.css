@@ -16,3 +16,9 @@
   flex-shrink: 1;
   margin-left: 10px;
 }
+
+@media (max-width: 800px) {
+  .album__songs-container {
+    flex-direction: column;
+  }
+}
