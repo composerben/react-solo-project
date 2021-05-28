@@ -51,8 +51,7 @@ router.post(
   "/add-new",
   validateAlbum,
   asyncHandler(async (req, res) => {
-    const { name, albumCover, releaseDate, genreId, userId } = req.body;
-
+    const { name, albumCover, releaseDate, genreId, userId, songs } = req.body;
     const album = await Album.create({
       name,
       albumCover,
@@ -61,7 +60,20 @@ router.post(
       userId,
     });
 
-    return res.json({ album });
+    await Promise.all(
+      songs.map((song, idx) =>
+        Song.create({
+          name: song.name,
+          audioFile: song.audioFile,
+          userId,
+          trackNumber: idx,
+          albumId: album.id,
+        })
+      )
+    );
+
+    // return res.json({ album, songs: allSongs });
+    res.send(201);
   })
 );
 module.exports = router;

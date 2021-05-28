@@ -1,4 +1,5 @@
 import { csrfFetch } from "./csrf";
+
 //create action type
 const GET_ALBUM = "albums/GET_ALBUM";
 const POST_ALBUM = "albums/POST_ALBUM";
@@ -32,14 +33,12 @@ export const retrieveAllAlbums = () => async (dispatch) => {
 };
 
 export const addAlbum = (album) => async (dispatch) => {
-  const { name, albumCover, releaseDate, genreId, userId } = album;
   const response = await csrfFetch("/api/albums/add-new", {
     method: "POST",
-    body: JSON.stringify({ name, albumCover, releaseDate, genreId, userId }),
+    body: JSON.stringify(album),
   });
   const data = await response.json();
   dispatch(postAlbum(data.album));
-
   return response;
 };
 

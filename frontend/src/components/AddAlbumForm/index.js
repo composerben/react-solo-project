@@ -5,6 +5,30 @@ import * as albumActions from "../../store/albums";
 import * as genreActions from "../../store/genre";
 import "./AddAlbumForm.css";
 
+const Song = ({ onChange, song }) => {
+  const onNameChange = (e) => {
+    onChange({ ...song, name: e.target.value });
+  };
+  const onAudioFileChange = (e) => {
+    onChange({ ...song, audioFile: e.target.value });
+  };
+  return (
+    <div className="album-form__element">
+      <label>Song info:</label>
+      <input
+        placeholder="Song Name"
+        value={song.name}
+        onChange={onNameChange}
+      />
+      <input
+        placeholder="Audio file"
+        value={song.audioFile}
+        onChange={onAudioFileChange}
+      />
+    </div>
+  );
+};
+
 const AddAlbumForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -16,6 +40,15 @@ const AddAlbumForm = () => {
   const [releaseDate, setReleaseDate] = useState("");
   const [genre, setGenre] = useState(0);
   const [errors, setErrors] = useState([]);
+  const [songs, setSongs] = useState([]);
+
+  const addSongField = (e) => {
+    e.preventDefault();
+    setSongs(songs.concat({}));
+  };
+  const editSong = (idx, newSong) => {
+    setSongs([...songs.slice(0, idx), newSong, ...songs.slice(idx + 1)]);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,30 +59,10 @@ const AddAlbumForm = () => {
         releaseDate,
         genreId: genre,
         userId: sessionUser.id,
+        songs,
       })
     );
     history.push(`/users/${sessionUser.id}`);
-  };
-
-  const addSongField = (e) => {
-    e.preventDefault();
-    const songContainer = document.createElement("div");
-    songContainer.setAttribute("class", "album-form__element");
-
-    const songLabel = document.createElement("label");
-    songLabel.innerHTML = "Song info:";
-    songContainer.appendChild(songLabel);
-
-    const songName = document.createElement("input");
-    songName.setAttribute("placeholder", "Song Name");
-    const trackNumber = document.createElement("input");
-    trackNumber.setAttribute("placeholder", "Track Number");
-
-    songContainer.appendChild(songName);
-    songContainer.appendChild(trackNumber);
-
-    const form = document.querySelector(".album-form");
-    form.appendChild(songContainer);
   };
 
   useEffect(() => {
@@ -119,6 +132,10 @@ const AddAlbumForm = () => {
           </button>
         </div>
       </div>
+
+      {songs.map((song, idx) => (
+        <Song song={song} onChange={(data) => editSong(idx, data)} />
+      ))}
     </form>
   );
 };

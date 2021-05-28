@@ -14,7 +14,7 @@ const HomePage = () => {
 
   return (
     <>
-      <h1>Hello from Home page</h1>
+      <h1 className="welcome-message">Welcome to Devtunes!</h1>
       <div className="albums-container">
         {albums &&
           albums.map((album) => (

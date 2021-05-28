@@ -9,8 +9,10 @@ const AlbumPage = () => {
   const { id } = useParams();
   const currentAlbum = useSelector((state) => state.album);
   let songs;
+
   if (currentAlbum) {
-    songs = currentAlbum.Songs;
+    songs = currentAlbum.Songs || [];
+    songs.sort((a, b) => a.trackNumber - b.trackNumber);
   }
   useEffect(() => {
     dispatch(albumActions.retrieveAlbumInfo(id));
@@ -28,7 +30,7 @@ const AlbumPage = () => {
             songs.map((song) => (
               <div className="song-player">
                 <p className="song-name">
-                  {song.trackNumber}. {song.name}
+                  {song.trackNumber + 1}. {song.name}
                 </p>
                 <audio
                   controls
